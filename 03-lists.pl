@@ -296,6 +296,18 @@ generateRndLst(TotalElementos, ListaFinal):-
   ListaFinal = [U|T],       % Usar T para el nuevo valor (cola, tail)
   generateRndLst(C1, T).
 
+% count/3
+% count(X, List, Occurrences) 
+% X es el elemento a buscar
+count(_, [], 0).
+count(Elemento, [Elemento | Resto], Occurrencias) :-
+	!, count(Elemento, Resto, OccurrenciasActual),
+	Occurrencias is OccurrenciasActual + 1.
+count(Elemento, [_ | Resto], Occurrencias) :-
+	count(Elemento, Resto, Occurrencias). 
+
+% count(e, [a,b,c,e,d,e,f,e], Occurrences)
+
 % Consultas
 % ?- generateRndLst(5,0,10,ListaFinal).
 % ListaFinal = [9, 5, 8, 0, 0]
