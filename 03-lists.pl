@@ -308,16 +308,17 @@ count(Elemento, [_ | Resto], Occurrencias) :-
 
 % count(e, [a,b,c,e,d,e,f,e], Occurrences)
 
-histograma(ListOcurrenciasIn, ListIn, ListOut) :-
+ocurrences_of_each_element(ListOcurrenciasIn, ListIn, ListOut) :-
     count(e, ListOcurrenciasIn, Occurrences),
-    insertarAlFinal(Occurrences,
+    Pair = [e, Occurrences],
+    insertarAlFinal(Pair,
                     ListIn,
                     ListOut).
 % Consultas
 %insertarAlFinal(Elemento, LInicial, LFinal).
 %insertarAlFinal(2, [1,3], LFinal).
 % LFinal = [1, 3, 2]
-%histograma([a,b,c,e,d,e,f,e], [], ListOut).
+%ocurrences_of_each_element([a,b,c,e,d,e,f,e], [], ListOut).
 
 % Consultas
 % ?- generateRndLst(5,0,10,ListaFinal).
