@@ -296,6 +296,12 @@ generateRndLst(TotalElementos, ListaFinal):-
   ListaFinal = [U|T],       % Usar T para el nuevo valor (cola, tail)
   generateRndLst(C1, T).
 
+%len
+list_length([], 0).
+list_length([_ | L], N) :-
+    list_length(L, Acc),
+    N is Acc + 1. 
+
 % count/3
 % count(X, List, Occurrences) 
 % X es el elemento a buscar
