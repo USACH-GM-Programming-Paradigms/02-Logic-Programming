@@ -88,20 +88,10 @@ costoTotalDeOrigenADestino(Origen, Destino, CostoTotal):-
 %encontrarUnCamino(Inicio, Destino, CostoTotal, CaminoEncontrado, []).
 %https://www.swi-prolog.org/pldoc/man?predicate=%5C%2B/1
 
-encontrarUnCamino(Inicio, Destino, CostoTotal, [Inicio,Destino], _) :- 
-    conecta(Inicio, Destino, CostoTotal).
-
-encontrarUnCamino(Inicio, Destino, CostoTotal, [Inicio|SiguientesPuntos], V) :- 
-	\+ member(Inicio, V),
-	conecta(Inicio, Z, Costo1),
-	encontrarUnCamino(Z, Destino, Costo2, SiguientesPuntos, [Inicio|V]),
-	CostoTotal is Costo1 + Costo2.
-
-
-%encontrarUnCamino(a, d, CostoTotal, CaminoEncontrado, [])
-
-
+% Predicado
 %encontrarUnCamino(Inicio, Destino, CostoTotal, CaminoEncontrado, Vistos).
+
+% Ejemplo
 %encontrarUnCamino(a, d, CostoTotal, CaminoEncontrado, []).
 
 encontrarUnCamino(Inicio, Destino, CostoTotal, [Inicio,Destino], _) :- 
