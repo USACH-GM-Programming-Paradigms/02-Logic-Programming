@@ -29,6 +29,13 @@ list_length([_ | Tail], Length) :-
     list_length(Tail, TailLength),
     Length is TailLength + 1.
 
+% suma lista
+% sum([1,2,3], R).
+sum([], 0).    % base case: the sum of an empty list is 0
+sum([H|T], S) :- 
+    sum(T, S1), 
+    S is H + S1.   % recursive case: add the head to the sum of the tail
+
 % agregar al principio
 % add_to_beginning(9, [1,2,3], L).
 add_to_beginning(Element, List, [Element | List]).
