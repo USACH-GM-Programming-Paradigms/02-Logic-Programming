@@ -15,6 +15,9 @@
 % tienda("Gonzalo Market", Productos)
 store(Name, Products, [Name, Products]).
 
+% person("Gonzalo", "Usach", Person).
+person(Name, University, [Name, University, Timestamp]) :-
+   get_time(Timestamp).
 
 % Constructor Producto
 % product/4
